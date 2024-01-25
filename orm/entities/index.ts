@@ -6,6 +6,12 @@ import { Room } from "./room.entity";
 import { Tenent } from "./tenents.entity";
 import { User } from "./user.entity";
 
-const ENTITIES = { Building, Floor, Location, RentInfo, Room, Tenent, User };
-
-export default ENTITIES;
+export const ENTITIES = [
+  Building,
+  Floor,
+  Location,
+  RentInfo,
+  Room,
+  Tenent,
+  User,
+];
