@@ -1,0 +1,51 @@
+import { IsEmail, Length } from "class-validator";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  OneToMany,
+  DeleteDateColumn,
+  BaseEntity,
+} from "typeorm";
+import { RentInfo } from "./rent.entity";
+
+@Entity()
+export class Tenent extends BaseEntity {
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
+
+  @Column()
+  fullName: string;
+
+  @Column({unique:true,nullable:true})
+  @IsEmail()
+  email: string | null ;
+
+  @Column({unique:true})
+  @Length(10, 10)
+  phoneNumber: string;
+  
+  @Column({unique:true})
+  aadharNumber: string;
+
+  @Column("simple-json",{nullable:true})
+  tenentDocs: [] | null;
+  
+  @Column({default:0})
+  tenetScore: number;
+
+  @OneToMany(()=>RentInfo, (rentinfo)=>rentinfo.tenent)
+  rentHistory:RentInfo[]
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @DeleteDateColumn()
+  deletedAt: Date;
+
+}

@@ -1,0 +1,17 @@
+{
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "emitDecoratorMetadata": true,
+    "outDir": "dist"
+  },
+  "lib": ["es2015"]
+}
