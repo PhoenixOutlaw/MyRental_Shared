@@ -1,9 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 var { exec } = require("child_process");
 const COMMANDS = {
-  generate: `npx TypeORM-ts-node-esm migration:generate -d ./src/database/datasource.migration.ts ./src/orm/migrations/${process.argv[3]}`,
-  run: `npx TypeORM-ts-node-esm migration:run -d ./src/database/datasource.migration.ts`,
-  revert: `npx TypeORM-ts-node-esm migration:revert -d ./src/database/datasource.migration.ts`,
+  generate: `npx TypeORM-ts-node-esm migration:generate -d ./src/MyRental_Shared/database/datasource.migration.ts ./src/MyRental_Shared/orm/migrations/${process.argv[3]}`,
+  run: `npx TypeORM-ts-node-esm migration:run -d ./src/MyRental_Shared/database/datasource.migration.ts`,
+  revert: `npx TypeORM-ts-node-esm migration:revert -d ./src/MyRental_Shared/database/datasource.migration.ts`,
 };
 (() =>
   exec(COMMANDS[process.argv[2]], (error, stdout, stderr) => {
