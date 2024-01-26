@@ -25,13 +25,13 @@ export class Location extends BaseEntity {
   country: string | null;
 
   @OneToOne(() => Building, (building) => building.location, {
-    cascade: true,
+    onDelete: "CASCADE",
   })
   building: Building;
 
-  @OneToMany(() => Floor, (floor) => floor.location, { onDelete: "CASCADE" })
+  @OneToMany(() => Floor, (floor) => floor.location)
   floor: Floor[];
 
-  @OneToMany(() => Room, (room) => room.location, { onDelete: "CASCADE" })
+  @OneToMany(() => Room, (room) => room.location)
   room: Room[];
 }

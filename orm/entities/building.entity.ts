@@ -8,6 +8,7 @@ import {
   OneToMany,
   OneToOne,
   BaseEntity,
+  JoinColumn,
 } from "typeorm";
 import { User } from "./user.entity";
 import { Floor } from "./floors.entity";
@@ -43,6 +44,9 @@ export class Building extends BaseEntity {
   @OneToMany(() => Floor, (floor) => floor.building)
   floors: Floor[];
 
-  @OneToOne(() => Location, (location) => location.building)
+  @OneToOne(() => Location, (location) => location.building, {
+    cascade: true,
+  })
+  @JoinColumn({ name: "locationId" })
   location: Location;
 }

@@ -21,15 +21,15 @@ export class User extends BaseEntity {
   @Column()
   fullName: string;
 
-  @Column({unique:true})
+  @Column({ unique: true })
   @IsEmail()
   email: string;
 
-  @Column({unique:true})
+  @Column({ unique: true })
   @Length(10, 10)
   phoneNumber: string;
-  
-  @Column({unique:true})
+
+  @Column({ unique: true })
   aadharNumber: string;
 
   @CreateDateColumn()
@@ -49,5 +49,4 @@ export class User extends BaseEntity {
 
   @OneToMany(() => Room, (room) => room.user)
   individualRoom: Room[];
-
 }

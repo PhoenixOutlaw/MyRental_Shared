@@ -43,12 +43,14 @@ export class RentInfo extends BaseEntity {
   @ManyToOne(() => Tenent, (tenent) => tenent.rentHistory)
   tenent: Tenent;
 
-  @ManyToOne(() => Building, (building) => building.rentInfo, {nullable: true})
+  @ManyToOne(() => Building, (building) => building.rentInfo, {
+    nullable: true,
+  })
   building: Building | null;
 
   @ManyToOne(() => Floor, (floor) => floor.rentInfo, { nullable: true })
   floor: Floor | null;
-  
+
   @ManyToOne(() => Room, (room) => room.rentInfo, { nullable: true })
   room: Room | null;
 }

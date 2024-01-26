@@ -14,7 +14,7 @@ import { Location } from "./location.entity";
 import { RentInfo } from "./rent.entity";
 
 @Entity()
-export class Room extends BaseEntity{
+export class Room extends BaseEntity {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 

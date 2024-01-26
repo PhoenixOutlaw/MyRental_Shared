@@ -19,25 +19,25 @@ export class Tenent extends BaseEntity {
   @Column()
   fullName: string;
 
-  @Column({unique:true,nullable:true})
+  @Column({ unique: true, nullable: true })
   @IsEmail()
-  email: string | null ;
+  email: string | null;
 
-  @Column({unique:true})
+  @Column({ unique: true })
   @Length(10, 10)
   phoneNumber: string;
-  
-  @Column({unique:true})
+
+  @Column({ unique: true })
   aadharNumber: string;
 
-  @Column("simple-json",{nullable:true})
+  @Column("simple-json", { nullable: true })
   tenentDocs: [] | null;
-  
-  @Column({default:0})
+
+  @Column({ default: 0 })
   tenetScore: number;
 
-  @OneToMany(()=>RentInfo, (rentinfo)=>rentinfo.tenent)
-  rentHistory:RentInfo[]
+  @OneToMany(() => RentInfo, (rentinfo) => rentinfo.tenent)
+  rentHistory: RentInfo[];
 
   @CreateDateColumn()
   createdAt: Date;
@@ -47,5 +47,4 @@ export class Tenent extends BaseEntity {
 
   @DeleteDateColumn()
   deletedAt: Date;
-
 }
