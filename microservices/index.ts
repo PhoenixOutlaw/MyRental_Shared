@@ -1,5 +1,9 @@
 import { DynamicModule, Module } from "@nestjs/common";
-import { ClientProxyFactory, Transport } from "@nestjs/microservices";
+import {
+  ClientProxyFactory,
+  MicroserviceOptions,
+  Transport,
+} from "@nestjs/microservices";
 
 @Module({})
 export class MicroServices {
@@ -24,6 +28,19 @@ export class MicroServices {
       global: true,
       providers: [providers],
       exports: [providers],
+    };
+  }
+  static createMicroservice(queue: string): MicroserviceOptions {
+    const REDIS_URL = process.env.RABBITMQ_URLS;
+    return {
+      transport: Transport.RMQ,
+      options: {
+        urls: [REDIS_URL],
+        queue,
+        queueOptions: {
+          durable: false,
+        },
+      },
     };
   }
 }
