@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === "test") {
   dotenv.config();
 }
 
-const basePath = __dirname + "../../src/MyRental_Shared/";
+const basePath = __dirname + "../../src/sharedlib/";
 const dataSource: TypeOrmModuleOptions = {
   type: "postgres",
   host: process.env.POSTGRES_HOST,
