@@ -35,7 +35,10 @@ export class Building extends BaseEntity {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => User, (user) => user.buildings, { onDelete: "CASCADE" })
+  @ManyToOne(() => User, (user) => user.buildings, {
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
   user: User;
 
   @OneToMany(() => RentInfo, (rentInfo) => rentInfo.building)

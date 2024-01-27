@@ -30,6 +30,7 @@ export class CreateBuilding_dto {
   images: [];
 
   @IsNotEmpty()
+  @Matches(/^AVAILABLE_FOR_RENTING|OCCUPIED|UNDER_CONSTRUCTION$/)
   status: "AVAILABLE_FOR_RENTING" | "OCCUPIED" | "UNDER_CONSTRUCTION";
 
   @IsNotEmpty()
