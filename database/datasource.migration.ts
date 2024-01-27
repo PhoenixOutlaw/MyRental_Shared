@@ -11,7 +11,8 @@ if (process.env.NODE_ENV === "test") {
   dotenv.config();
 }
 
-const basePath = __dirname + "../../src/MyRental_Shared/";
+const basePath = __dirname + "/../";
+
 export const migration_datasource = new DataSource({
   type: "postgres",
   host: process.env.POSTGRES_HOST,
@@ -25,6 +26,6 @@ export const migration_datasource = new DataSource({
     },
   },
   entities: [basePath + "orm/entities/*.entity{.ts,.js}"],
-  migrations: [basePath + "orm/migrations/*{.ts,.js}"],
+  migrations: [basePath + "/orm/migrations/*{.ts,.js}"],
   migrationsTableName: "migrations",
 });
