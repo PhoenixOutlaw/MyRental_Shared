@@ -9,7 +9,7 @@ import {
   DeleteDateColumn,
   BaseEntity,
 } from "typeorm";
-import { RentInfo } from "./rent.entity";
+import { PaymentInfo } from "./payment.entity";
 
 @Entity()
 export class Tenent extends BaseEntity {
@@ -36,8 +36,8 @@ export class Tenent extends BaseEntity {
   @Column({ default: 0 })
   tenetScore: number;
 
-  @OneToMany(() => RentInfo, (rentinfo) => rentinfo.tenent)
-  rentHistory: RentInfo[];
+  @OneToMany(() => PaymentInfo, (paymentInfo) => paymentInfo.paidBy)
+  paymentHistories: PaymentInfo[];
 
   @CreateDateColumn()
   createdAt: Date;

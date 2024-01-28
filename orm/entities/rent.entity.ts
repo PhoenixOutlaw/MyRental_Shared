@@ -9,7 +9,6 @@ import {
 import { Building } from "./building.entity";
 import { Floor } from "./floors.entity";
 import { Room } from "./room.entity";
-import { Tenent } from "./tenents.entity";
 
 @Entity()
 export class RentInfo extends BaseEntity {
@@ -18,9 +17,6 @@ export class RentInfo extends BaseEntity {
 
   @Column({ default: "MONTHLY" })
   frequency: "MONTHLY" | "QUATERLY" | "YEARLY";
-
-  @Column({ default: "CASH" })
-  paymentMode: "CASH" | "ONLINE";
 
   @Column({ default: "INR" })
   currency: "INR" | "USD";
@@ -39,9 +35,6 @@ export class RentInfo extends BaseEntity {
 
   @CreateDateColumn()
   createdAt: Date;
-
-  @ManyToOne(() => Tenent, (tenent) => tenent.rentHistory)
-  tenent: Tenent;
 
   @ManyToOne(() => Building, (building) => building.rentInfo, {
     nullable: true,
