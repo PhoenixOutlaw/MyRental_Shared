@@ -42,7 +42,9 @@ export class PaymentInfo extends BaseEntity {
   @Column({ default: "INR" })
   currency: "INR" | "USD";
 
-  @ManyToOne(() => Tenent, (tenant) => tenant.paymentHistories)
+  @ManyToOne(() => Tenent, (tenant) => tenant.paymentHistories, {
+    nullable: false,
+  })
   paidBy: Tenent;
 
   @CreateDateColumn()
