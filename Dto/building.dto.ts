@@ -1,12 +1,6 @@
-import {
-  IsEmail,
-  IsNotEmpty,
-  IsOptional,
-  Matches,
-  MinLength,
-} from "class-validator";
+import { IsNotEmpty, IsOptional, Matches } from "class-validator";
 
-export class Location {
+export class Location_dto {
   @IsNotEmpty()
   pincode: string;
 
@@ -15,11 +9,6 @@ export class Location {
 
   @IsOptional()
   country: string;
-}
-export class Mpin_dto {
-  @IsNotEmpty()
-  @MinLength(6)
-  mpin: string;
 }
 
 export class CreateBuilding_dto {
@@ -34,5 +23,5 @@ export class CreateBuilding_dto {
   status: "AVAILABLE_FOR_RENTING" | "OCCUPIED" | "UNDER_CONSTRUCTION";
 
   @IsNotEmpty()
-  location: Location;
+  location: Location_dto;
 }
