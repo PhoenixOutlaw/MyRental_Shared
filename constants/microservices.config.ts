@@ -17,6 +17,7 @@ export const COMMUNICATION_SERVICES = {
 export const MAIN_SERVICES = {
   building: {
     add: "addBuilding",
+    getAllBuildings: "getAllBuildings",
     modify: "modifyBuilding",
     remove: "removeBuilding",
   },
@@ -24,11 +25,13 @@ export const MAIN_SERVICES = {
     add: "addFloor",
     modify: "modifyFloor",
     remove: "removeFloor",
+    getAllFloors: "getAllFloors",
   },
   room: {
     add: "addRoom",
     modify: "modifyRoom",
     remove: "removeRoom",
+    getAllRooms: "getAllRooms",
   },
 };
 
