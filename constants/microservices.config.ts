@@ -17,20 +17,23 @@ export const COMMUNICATION_SERVICES = {
 export const MAIN_SERVICES = {
   building: {
     add: "addBuilding",
-    getAllBuildings: "getAllBuildings",
     modify: "modifyBuilding",
     remove: "removeBuilding",
+    getBuilding: "getBuilding",
+    getAllBuildings: "getAllBuildings",
   },
   floor: {
     add: "addFloor",
     modify: "modifyFloor",
     remove: "removeFloor",
+    getFloor: "getFloor",
     getAllFloors: "getAllFloors",
   },
   room: {
     add: "addRoom",
     modify: "modifyRoom",
     remove: "removeRoom",
+    getRoom: "getRoom",
     getAllRooms: "getAllRooms",
   },
 };
