@@ -23,7 +23,7 @@ export class Building extends BaseEntity {
   @Column({ nullable: true })
   description: string | null;
 
-  @Column("simple-json")
+  @Column("simple-json", { nullable: true })
   images: [];
 
   @Column({ default: "AVAILABLE_FOR_RENTING" })
@@ -50,6 +50,5 @@ export class Building extends BaseEntity {
   @OneToOne(() => Location, (location) => location.building, {
     cascade: true,
   })
-  @JoinColumn({ name: "locationId" })
   location: Location;
 }

@@ -2,6 +2,7 @@ import {
   BaseEntity,
   Column,
   Entity,
+  JoinColumn,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
@@ -24,6 +25,7 @@ export class Location extends BaseEntity {
   @Column({ nullable: true })
   country: string | null;
 
+  @JoinColumn({ name: "buildingId" })
   @OneToOne(() => Building, (building) => building.location, {
     onDelete: "CASCADE",
   })
