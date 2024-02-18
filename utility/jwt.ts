@@ -1,4 +1,6 @@
 import * as JWT from "jsonwebtoken";
+import { HttpStatus } from "@nestjs/common";
+import { RpcError } from "./customRcpException";
 
 export const jwtToken = {
   create: function (payload: any) {
@@ -12,4 +14,11 @@ export const jwtToken = {
   verify: function (jwtToken: string) {
     return JWT.verify(jwtToken, process.env.JWT_SECRET_KEY);
   },
+  verifyOrThrow: function<T>(jwtToken: string): T {
+    try {
+      return JWT.verify(jwtToken, process.env.JWT_SECRET_KEY) as T;
+    } catch (err) {
+      throw new RpcError("Invalid JWT Token", HttpStatus.FORBIDDEN);
+    }
+  }
 };
