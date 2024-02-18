@@ -7,6 +7,7 @@ export const AUTH_SERVICES = {
     getLoggedInUser: "getLoggedInUser",
     createNewUser: "createNewUser",
     signIn: "login",
+    updateUser: "updateUser"
   },
 };
 export const COMMUNICATION_SERVICES = {
