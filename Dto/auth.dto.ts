@@ -1,8 +1,8 @@
-import { IsNotEmpty, Matches, MinLength } from "class-validator";
+import { IsNotEmpty, Length, Matches } from "class-validator";
 
 export class Mpin_dto {
   @IsNotEmpty()
-  @MinLength(6)
+  @Matches(new RegExp(/^[0-9]{6}$/))
   mpin: string;
 }
 

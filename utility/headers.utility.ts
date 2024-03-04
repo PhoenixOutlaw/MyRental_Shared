@@ -8,7 +8,7 @@ export function getCtxHeader(ctx: RmqContext, header: string): any {
   return res;
 }
 
-export function createRecord(data, headers) {
+export function createRecord(data: any, headers: any) {
   return new RmqRecordBuilder(data)
     .setOptions({
       headers,
