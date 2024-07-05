@@ -19,6 +19,9 @@ export class User extends BaseEntity {
   id: string;
 
   @Column()
+  mpin: string;
+
+  @Column()
   fullName: string;
 
   @Column({ unique: true })
